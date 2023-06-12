@@ -25,4 +25,6 @@ All the saftey features are enabled, but please don't neglect testing your print
  * https://all3dp.com/4/finally-an-official-guide-to-3d-printing-safety/
 
 
+If you are looking for an SC-20 Build - https://github.com/Alexoko12/Marlin_Config_Lotmaxx_SC-10
+
 
