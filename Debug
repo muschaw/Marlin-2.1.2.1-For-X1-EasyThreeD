@@ -1,0 +1,25 @@
+SENDING:M503
+echo:; Linear Units:
+echo:  G21 ; (mm)
+echo:; Temperature Units:
+echo:  M149 C ; Units in Celsius
+echo:; Filament settings (Disabled):
+echo:  M200 S0 D1.75
+echo:; Steps per unit:
+echo:  M92 X606.00 Y606.00 Z1167.00 E1248.00
+echo:; Max feedrates (units/s):
+echo:  M203 X40.00 Y40.00 Z10.00 E70.00
+echo:; Max Acceleration (units/s2):
+echo:  M201 X1000.00 Y1000.00 Z100.00 E1000.00
+echo:; Acceleration (units/s2) (P<print-accel> R<retract-accel> T<travel-accel>):
+echo:  M204 P1000.00 R1000.00 T1000.00
+echo:; Advanced (B<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> J<junc_dev>):
+echo:  M205 B20000.00 S0.00 T0.00 J0.01
+echo:; Home offset:
+echo:  M206 X0.00 Y0.00 Z-0.10
+echo:; Hotend PID:
+echo:  M301 P22.20 I1.08 D114.00
+echo:; Linear Advance:
+echo:  M900 K0.22
+echo:; Stepper motor currents:
+echo:  M907 X1000 Z1000 E1000
