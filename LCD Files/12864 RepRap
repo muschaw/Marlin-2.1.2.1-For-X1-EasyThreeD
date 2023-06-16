@@ -1,0 +1,23 @@
+Need to define these by minimum
+
+https://reprap.org/wiki/MKS_MINI_12864
+
+
+#elif ENABLED(MINIPANEL)
+   #define MISO_PIN      50  // system defined - only needed if using onboard SD card
+   #define MOSI_PIN      51  // system defined
+   #define SCK_PIN       52  // system defined
+   #define SDSS          53  // only needed if using onboard SD card
+
+   #define BEEPER_PIN    37
+
+   #define BTN_EN1       31
+   #define BTN_EN2       33
+   #define BTN_ENC       35
+
+   #define KILL_PIN      41  // optional
+
+   #define SD_DETECT_PIN 49  // only needed if using onboard SD card
+
+   #define DOGLCD_CS     25
+   #define DOGLCD_A0     27
