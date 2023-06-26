@@ -1308,7 +1308,7 @@
  *    M908 - BQ_ZUM_MEGA_3D, RAMBO, PRINTRBOARD_REVF, RIGIDBOARD_V2 & SCOOVO_X9H
  *    M909, M910 & LCD - only PRINTRBOARD_REVF & RIGIDBOARD_V2
  */
-//#define PWM_MOTOR_CURRENT { 1300, 1300, 1250 }          // Values in milliamps
+#define PWM_MOTOR_CURRENT { 700, 700, 700 }          // Values in milliamps
 //#define DIGIPOT_MOTOR_CURRENT { 135,135,135,135,135 }   // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 //#define DAC_MOTOR_CURRENT_DEFAULT { 70, 80, 90, 80 }    // Default drive percent - X, Y, Z, E axis
 
@@ -2678,7 +2678,7 @@
   #define PARK_HEAD_ON_PAUSE                      // Park the nozzle during pause and filament change.
   //#define HOME_BEFORE_FILAMENT_CHANGE           // If needed, home before parking for filament change
 
-  //#define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
+  #define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
   //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Allow M702 to unload all extruders above a minimum target temp (as set by M302)
 #endif
 
@@ -3811,24 +3811,34 @@
   #if PIN_EXISTS(BUTTON1)
     #define BUTTON1_HIT_STATE     LOW       // State of the triggered button. NC=LOW. NO=HIGH.
     #define BUTTON1_WHEN_PRINTING false     // Button allowed to trigger during printing?
-    #define BUTTON1_GCODE         "G28"
-    #define BUTTON1_DESC          "Homing"  // Optional string to set the LCD status
+    #define BUTTON1_GCODE         "M43"
+    #define BUTTON1_DESC          "Printing From SD"  // Optional string to set the LCD status
   #endif
 
-  //#define BUTTON2_PIN PB3
+  #define BUTTON4_PIN PA11
+  #if PIN_EXISTS(BUTTON4)
+    #define BUTTON4_HIT_STATE     LOW       // State of the triggered button. NC=LOW. NO=HIGH.
+    #define BUTTON4_WHEN_PRINTING false     // Button allowed to trigger during printing?
+    #define BUTTON4_GCODE         "G28"
+    #define BUTTON4_DESC          "Home"  // Optional string to set the LCD status
+  #endif
+
+  #define BUTTON2_PIN PB3
   #if PIN_EXISTS(BUTTON2)
-    #define BUTTON2_HIT_STATE     HIGH
+    #define BUTTON2_HIT_STATE     LOW
     #define BUTTON2_WHEN_PRINTING false
     //#define BUTTON2_GCODE         "M701"
-    #define BUTTON2_GCODE         "M104 S200\nG1 F100 E0"
+    //#define BUTTON2_GCODE         "M104 S200\nG1 F100 E0"
+    #define BUTTON2_GCODE         "M43"
     #define BUTTON2_DESC          "Load Filament"
   #endif
 
-  //#define BUTTON3_PIN PB5
+  #define BUTTON3_PIN PB5
   #if PIN_EXISTS(BUTTON3)
-    #define BUTTON3_HIT_STATE     HIGH
+    #define BUTTON3_HIT_STATE     LOW
     #define BUTTON3_WHEN_PRINTING false
-    #define BUTTON3_GCODE         "M702"
+    //#define BUTTON3_GCODE         "M702"
+    #define BUTTON3_GCODE         "M43"
     #define BUTTON3_DESC          "Unload Filament"
   #endif
 #endif
@@ -4217,12 +4227,12 @@
 //
 // M42 - Set pin states
 //
-//#define DIRECT_PIN_CONTROL
+#define DIRECT_PIN_CONTROL
 
 //
 // M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe
 //
-//#define PINS_DEBUGGING
+#define PINS_DEBUGGING
 
 // Enable Tests that will run at startup and produce a report
 //#define MARLIN_TEST_BUILD
