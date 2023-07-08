@@ -109,7 +109,7 @@ void EasythreedUI::loadButton() {
     case FS_PRESS:
       if (ELAPSED(millis(), filament_time + BTN_DEBOUNCE_MS)) {     // After a short debounce delay...
         if (!READ(BTN_RETRACT) || !READ(BTN_FEED)) {                // ...if switch still toggled...
-          thermalManager.setTargetHotend(EXTRUDE_MINTEMP + 10, 0);  // Start heating up
+          thermalManager.setTargetHotend(EXTRUDE_MINTEMP + 20, 0);  // Start heating up
           blink_interval_ms = LED_BLINK_7;                          // Set the LED to blink fast
           filament_status++;
         }
@@ -124,7 +124,7 @@ void EasythreedUI::loadButton() {
         filament_status = FS_IDLE;
         thermalManager.disable_all_heaters();
       }
-      else if (thermalManager.hotEnoughToExtrude(0)) {              // Is the hotend hot enough to move material?
+      else if (thermalManager.degHotend(0) >= (EXTRUDE_MINTEMP + 15)) {              // Testing that hotend is +15 above min
         filament_status++;                                          // Proceed to feed / retract.
         blink_interval_ms = LED_BLINK_5;                            // Blink ~3 times per second
       }
@@ -142,7 +142,7 @@ void EasythreedUI::loadButton() {
       }
       else if (!flag) {
         flag = true;
-        queue.inject(!READ(BTN_RETRACT) ? F("G91\nG0 E10 F180\nG0 E-120 F180\nM104 S0") : F("G91\nG0 E100 F120\nM104 S0"));
+        queue.inject(!READ(BTN_RETRACT) ? F("G91\nG0 E10 F180\nG0 E-120 F180\nG4 S5\nM104 S0") : F("G91\nG0 E100 F120\nG4 S5\nM104 S0"));
       }
     } break;
   }
@@ -194,7 +194,7 @@ void EasythreedUI::printButton() {
                 print_key_flag = PF_START;
                 return;                                             // Bail out
             }
-            card.ls();                                              // List all files to serial output
+            card.ls(0);                                             // List all files to serial output
             const uint16_t filecnt = card.countFilesInWorkDir();    // Count printable files in cwd
             if (filecnt == 0) return;                               // None are printable?
             card.selectFileByIndex(filecnt);                        // Select the last file according to current sort options
