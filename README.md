@@ -1,4 +1,4 @@
-X1 EasyThreeD - Board ET4000+ w/ARREY (AT32f4 - STM CLONE) Based on marlin 2.1.2.1
+# X1 EasyThreeD - Board ET4000+ w/ARREY (AT32f4 - STM CLONE) Based on marlin 2.1.2.1
 
 * Using MKS_ROBIN_LITE pinouts 
 * Full buttons support 
@@ -24,6 +24,14 @@ All the safety features are enabled, but please don't neglect to test your print
  * https://youtu.be/VK_K6fp4BIk
  * https://youtu.be/lURxGcdBm9A
  * https://all3dp.com/4/finally-an-official-guide-to-3d-printing-safety/
+
+
+## Installation 
+
+You can use the bin from the release if you don't want to compile the build https://github.com/muschaw/Marlin-2.1.2.1-For-X1-EasyThreeD/releases/tag/V2
+* Power off the printer
+* Copy the mksLite.bin on your SD card
+* Insert the card into your printer and power it on - the update will take about 10-15 seconds (the LEDs will flash) 
 
 
 
