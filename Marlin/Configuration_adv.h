@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "EasyThreeD/ET4000PLUS"
+//#define CONFIG_EXAMPLES_DIR "EasyThreeD/ET4000PLUS"
 
 /**
  * Configuration_adv.h
@@ -3807,7 +3807,7 @@
 // Home Button
 #define CUSTOM_USER_BUTTONS
 #if ENABLED(CUSTOM_USER_BUTTONS)
-  #define BUTTON1_PIN PC3
+  //#define BUTTON1_PIN PC3
   #if PIN_EXISTS(BUTTON1)
     #define BUTTON1_HIT_STATE     LOW       // State of the triggered button. NC=LOW. NO=HIGH.
     #define BUTTON1_WHEN_PRINTING false     // Button allowed to trigger during printing?
@@ -3823,7 +3823,7 @@
     #define BUTTON4_DESC          "Home"  // Optional string to set the LCD status
   #endif
 
-  #define BUTTON2_PIN PB3
+  //#define BUTTON2_PIN PB3
   #if PIN_EXISTS(BUTTON2)
     #define BUTTON2_HIT_STATE     LOW
     #define BUTTON2_WHEN_PRINTING false
@@ -3833,7 +3833,7 @@
     #define BUTTON2_DESC          "Load Filament"
   #endif
 
-  #define BUTTON3_PIN PB5
+  //#define BUTTON3_PIN PB5
   #if PIN_EXISTS(BUTTON3)
     #define BUTTON3_HIT_STATE     LOW
     #define BUTTON3_WHEN_PRINTING false
