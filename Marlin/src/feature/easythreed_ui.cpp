@@ -124,7 +124,7 @@ void EasythreedUI::loadButton() {
         filament_status = FS_IDLE;
         thermalManager.disable_all_heaters();
       }
-      else if (thermalManager.hotEnoughToExtrude(0)) {              // Is the hotend hot enough to move material?
+      else if (thermalManager.degHotend(0) >= (EXTRUDE_MINTEMP + 15)) {              // Testing that hotend is +15 above min
         filament_status++;                                          // Proceed to feed / retract.
         blink_interval_ms = LED_BLINK_5;                            // Blink ~3 times per second
       }
