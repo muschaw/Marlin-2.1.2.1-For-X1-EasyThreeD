@@ -163,3 +163,4 @@ __pycache__
 tags
 *.logs
 *.bak
+config-dump/X1-Nick
