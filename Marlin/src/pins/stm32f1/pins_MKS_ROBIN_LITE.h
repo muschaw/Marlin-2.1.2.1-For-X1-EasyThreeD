@@ -172,8 +172,8 @@
   #define BTN_RETRACT                EXP3_08_PIN  // Run E Backward
   //#define BTN_PRINT                  EXP3_04_PIN  // Start File Print
   #define BTN_PRINT                  EXP3_06_PIN  // Start File Print
-  #define BTN_HOME_GND               EXP3_02_PIN  // OUTPUT (LOW)
-  #define BTN_FEED_GND               EXP3_05_PIN  // OUTPUT (LOW)
+  #define BTN_HOME_GND               EXP3_05_PIN  // OUTPUT (LOW) EXP3_02_PIN
+  #define BTN_FEED_GND               EXP3_02_PIN  // OUTPUT (LOW) EXP3_05_PIN
   #define BTN_RETRACT_GND            EXP3_09_PIN  // OUTPUT (LOW)
   #define EASYTHREED_LED_PIN         EXP3_01_PIN  // Indicator LED
 #endif
